@@ -12,6 +12,16 @@ import { Status } from './components/Status';
 import { Input } from './Input';
 import {ThemeContextProvider} from './components/Context/ThemeContext'
 import { Box } from './components/Context/Box'
+import { UserContextProvider } from "./components/UserContext"
+import { User } from "./components/User"
+import { Counter } from './components/class/Counter';
+import { Private } from './components/auth/Private';
+import { profile } from './components/auth/Profile';
+import { List } from './components/generics/List';
+import { RandomNumber } from './components/restriction/RandomNumber';
+import { Toast } from './components/templateLiterals/Toast';
+import { CustomButton } from './components/html/Button';
+import { Text } from './polymorphic/Text';
 
 function App() {
 
@@ -37,9 +47,31 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeContextProvider>
+      <Text as='h1' size='lg'>Heading</Text>
+      <Text as='p' size='md'>Paragraph</Text>
+      <Text as='label' htmlFor='someId' size='sm' color='secondary'>label</Text>
+      {/* <CustomButton variant='primary' onClick={()=> console.log('clicked')}>
+        Primary button
+      </CustomButton> */}
+      {/* <Toast position='center' /> */}
+      {/* <RandomNumber value={10} isPositive /> */}
+      {/* <List items={['farzad','snj','shiraz','brisbane']} onClick={(item)=> console.log(item)} />
+      <List items={[1,2,3]} onClick={(item)=> console.log(item)} /> */}
+      {/* <List items={[
+        {
+          id:1,
+          first: 'farzad',
+          last: 'sanjarani',
+        },
+      ]} onClick={(item)=> console.log(item)} /> */}
+      {/* <Private isLoggedIn={true} Component={profile} /> */}
+      {/* <Counter message='the count value is' /> */}
+      {/* <UserContextProvider>
+        <User />
+      </UserContextProvider> */}
+      {/* <ThemeContextProvider>
         <Box />
-      </ThemeContextProvider>
+      </ThemeContextProvider> */}
       {/* <Greet name={'farzad'} messageCount={20} isLoggedIn={false}/>
       <Greet name={'farzadsnjNN'} isLoggedIn={false}/>
       <Person name={person} />

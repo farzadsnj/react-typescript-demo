@@ -1,4 +1,6 @@
-import React,{useState} from 'react'
+import React, {useState} from 'react'
+import { useContext } from 'react'
+import { UserContext } from './UserContext'
 
 type UserProps ={
     name:string
@@ -6,24 +8,26 @@ type UserProps ={
 }
 
 export const User = () => {
-    const [user, setUser] = useState<UserProps>({} as UserProps)
+    const userContext = useContext(UserContext)
 
     const handleLogin = () => {
-        setUser({
-            name:'farzad',
-            email:'farzad@gmail'
+        userContext?.setUser({
+            name: 'farzad',
+            email: 'farzad@gmail.com'
         })
     }
-    // const handleLogout = () => {
-    //     setUser(null)
-    // }
+    const handleLogout = () => {
+        if(userContext){
+            userContext.setUser(null)
+        }
+    }
 
   return (
     <div>
         <button onClick={handleLogin}>login User</button>
-        {/* <button onClick={handleLogout}>logout User</button> */}
-        <div>User name is {user.name}</div>
-        <div>User email is {user.email}</div>
+        <button onClick={handleLogout}>logout User</button>
+        <div>User name is {userContext?.user?.name}</div>
+        <div>User email is {userContext?.user?.email}</div>
     </div>
   )
 }
