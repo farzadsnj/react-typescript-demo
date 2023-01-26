@@ -13,7 +13,7 @@ import { Input } from "./Input";
 import { ThemeContextProvider } from "./components/Context/ThemeContext";
 import { Box } from "./components/Context/Box";
 import { UserContextProvider } from "./components/UserContext";
-import { User } from "./components/User";
+import { User } from "./components/state/User";
 import { Counter } from "./components/class/Counter";
 import { Private } from "./components/auth/Private";
 import { profile } from "./components/auth/Profile";
@@ -60,7 +60,8 @@ function App() {
           console.log("button clicked", event, id);
         }}
       />
-        <Input value="" handleOnchange={(event) => console.log(event)} />
+      <Input value="" handleOnchange={(event) => console.log(event)} />
+      <Container styles={{ border: "1px solid red", padding: "1rem" }} />
       <Text as="h1" size="lg">
         Heading
       </Text>
@@ -98,7 +99,6 @@ function App() {
       <ThemeContextProvider>
         <Box />
       </ThemeContextProvider>
-      <Container styles={{ border: "1px solid red", padding: "1rem" }} />
     </div>
   );
 }
