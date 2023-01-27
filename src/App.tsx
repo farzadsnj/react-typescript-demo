@@ -22,6 +22,7 @@ import { RandomNumber } from "./components/restriction/RandomNumber";
 import { Toast } from "./components/templateLiterals/Toast";
 import { CustomButton } from "./components/html/Button";
 import { Text } from "./polymorphic/Text";
+import { CounterReducer } from "./components/state/CounterReducer";
 
 function App() {
   const person = {
@@ -62,6 +63,13 @@ function App() {
       />
       <Input value="" handleOnchange={(event) => console.log(event)} />
       <Container styles={{ border: "1px solid red", padding: "1rem" }} />
+      <CounterReducer />
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      <UserContextProvider>
+        <User />
+      </UserContextProvider>
       <Text as="h1" size="lg">
         Heading
       </Text>
@@ -76,11 +84,11 @@ function App() {
       </CustomButton>
       <Toast position="center" />
       <RandomNumber value={10} isPositive />
-      <List
+      {/* <List
         items={["farzad", "snj", "shiraz", "brisbane"]}
         onClick={(item) => console.log(item)}
       />
-      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
       <List
         items={[
           {
@@ -93,12 +101,6 @@ function App() {
       />
       <Private isLoggedIn={true} Component={profile} />
       <Counter message="the count value is" />
-      <UserContextProvider>
-        <User />
-      </UserContextProvider>
-      <ThemeContextProvider>
-        <Box />
-      </ThemeContextProvider>
     </div>
   );
 }
