@@ -70,6 +70,7 @@ function App() {
       <UserContextProvider>
         <User />
       </UserContextProvider>
+        <Private isLoggedIn={true} component={profile} />
       <Text as="h1" size="lg">
         Heading
       </Text>
@@ -83,23 +84,35 @@ function App() {
         Primary button
       </CustomButton>
       <Toast position="center" />
-      <RandomNumber value={10} isPositive />
+      <RandomNumber value={10} isPositive={true} />
       {/* <List
-        items={["farzad", "snj", "shiraz", "brisbane"]}
+        items={['farzad', "sanjarani", "shiraz"]}
         onClick={(item) => console.log(item)}
       />
-      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
+      <List
+        items={[1,2,3]}
+        onClick={(item) => console.log(item)}
+      /> */}
       <List
         items={[
           {
             id: 1,
-            first: "farzad",
-            last: "sanjarani",
+            first: 'Bruce',
+            last: 'Wayne'
           },
+          {
+            id: 2,
+            first: 'Clark',
+            last: 'Kent'
+          },
+          {
+            id: 3,
+            first: 'Princess',
+            last: 'Diana'
+          }
         ]}
-        onClick={(item) => console.log(item)}
+        onClick={item => console.log(item)}
       />
-      <Private isLoggedIn={true} Component={profile} />
       <Counter message="the count value is" />
     </div>
   );

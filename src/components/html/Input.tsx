@@ -1,5 +1,5 @@
-type InputProps = React.ComponentProps<'input'>
+type InputProps = React.ComponentProps<"input">;
 
-export const CustomInput = (props: InputProps) =>{
-    return <input {...props}/>
-}
+export const CustomInput = (props: InputProps) => {
+  return <input {...props} />;
+};

@@ -1,97 +1,47 @@
-<<<<<<< HEAD
-import React, {useReducer} from 'react'
+import React, { useReducer } from "react";
 
 type CounterState = {
-    count: number
-}
+  count: number;
+};
 
 type UpdateAction = {
-    type: 'increase' | 'decrease'
-    payload: number
-}
+  type: "increase" | "decrease";
+  payload: number;
+};
 
 type ResetAction = {
-    type:'reset'
-}
+  type: "reset";
+};
 
-type CounterAction = UpdateAction | ResetAction
+type CounterAction = UpdateAction | ResetAction;
 
-const initialState = {count:0}
+const initialState = { count: 0 };
 
-function reducer(state: CounterState, action: CounterAction){
-    switch(action.type){
-        case 'increase':
-            return {count: state.count + action.payload}
-        case 'decrease':
-            return {count: state.count - action.payload}
-        case 'reset' : return initialState
-            default: return state
-    }
+function reducer(state: CounterState, action: CounterAction) {
+  switch (action.type) {
+    case "increase":
+      return { count: state.count + action.payload };
+    case "decrease":
+      return { count: state.count - action.payload };
+    case "reset":
+      return initialState;
+    default:
+      return state;
+  }
 }
 
 export const UseReducerCounter = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-        count: {state.count}
-        <button onClick={() => dispatch({type: 'increase', payload: 10})}>
-            increase 10 points
-        </button>
-        <button onClick={() => dispatch({type: 'decrease', payload: 10})}>
-            decrease 10 points
-        </button>
-        <button onClick={() => dispatch({type: 'reset'})}>
-            reset
-        </button>
+      count: {state.count}
+      <button onClick={() => dispatch({ type: "increase", payload: 10 })}>
+        increase 10 points
+      </button>
+      <button onClick={() => dispatch({ type: "decrease", payload: 10 })}>
+        decrease 10 points
+      </button>
+      <button onClick={() => dispatch({ type: "reset" })}>reset</button>
     </>
-  )
-}
-=======
-import React, {useReducer} from 'react'
-
-type CounterState = {
-    count: number
-}
-
-type UpdateAction = {
-    type: 'increase' | 'decrease'
-    payload: number
-}
-
-type ResetAction = {
-    type:'reset'
-}
-
-type CounterAction = UpdateAction | ResetAction
-
-const initialState = {count:0}
-
-function reducer(state: CounterState, action: CounterAction){
-    switch(action.type){
-        case 'increase':
-            return {count: state.count + action.payload}
-        case 'decrease':
-            return {count: state.count - action.payload}
-        case 'reset' : return initialState
-            default: return state
-    }
-}
-
-export const UseReducerCounter = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
-  return (
-    <>
-        count: {state.count}
-        <button onClick={() => dispatch({type: 'increase', payload: 10})}>
-            increase 10 points
-        </button>
-        <button onClick={() => dispatch({type: 'decrease', payload: 10})}>
-            decrease 10 points
-        </button>
-        <button onClick={() => dispatch({type: 'reset'})}>
-            reset
-        </button>
-    </>
-  )
-}
->>>>>>> 77a44e7a8a68b59852c17264c4d1648ef5b0a3fa
+  );
+};

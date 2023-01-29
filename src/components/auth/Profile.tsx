@@ -1,7 +1,7 @@
 export type ProfileProps = {
-    name: string
-}
+  name: string;
+};
 
-export const profile = ({name}: ProfileProps) =>{
-    return <div>Private Profile Component name is {name}</div>
-}
+export const profile = ({ name }: ProfileProps) => {
+  return <div>Private Profile Component name is {name}</div>;
+};
